@@ -42,3 +42,15 @@ campaignItems.forEach(item => {
     item.style.transition = 'opacity 0.5s, transform 0.5s';
     observer.observe(item);
 });
+
+// 瀏覽次數計數
+function updateViewCount() {
+    // 使用 LocalStorage 模擬
+    let count = parseInt(localStorage.getItem('viewCount') || '0', 10);
+    count++;
+    localStorage.setItem('viewCount', count);
+    document.getElementById('view-count').innerText = `目前瀏覽次數：${count}`;
+}
+
+// 初始化瀏覽次數
+document.addEventListener('DOMContentLoaded', updateViewCount);
